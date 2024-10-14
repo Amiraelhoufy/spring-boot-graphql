@@ -1,0 +1,13 @@
+
+extend type Query {
+    getAllAuthors:[Author]!
+    getAuthorById(id: Long): Author
+
+}
+
+type Author{
+    id: ID!
+    name: String!
+    age: Int
+}
+

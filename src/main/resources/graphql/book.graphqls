@@ -1,0 +1,22 @@
+
+scalar Long
+
+# Query: What the client can query from our service
+
+# GraphQL accepts only one root Query and one root Mutation types
+# as we want to split the logic for each model into a separate file, We extend the Query and Mutation types
+
+
+# Root
+type Query{
+    getAllBooks: [Book]!
+    countBooks: Int!
+    getBookById(id: Long!): Book
+}
+
+type Book{
+    id: ID!
+    name: String!
+    pageCount: Int!
+    author: Author
+}
