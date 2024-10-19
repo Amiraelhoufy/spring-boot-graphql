@@ -109,6 +109,10 @@ public class Book{
     return author;
   }
 
+  public void setAuthor(Author author) {
+    this.author = author;
+  }
+
   @Override
   public String toString() {
     return "Book{" +

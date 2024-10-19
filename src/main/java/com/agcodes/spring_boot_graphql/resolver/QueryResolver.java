@@ -4,6 +4,7 @@ import com.agcodes.spring_boot_graphql.model.Author;
 import com.agcodes.spring_boot_graphql.model.Book;
 import com.agcodes.spring_boot_graphql.service.AuthorService;
 import com.agcodes.spring_boot_graphql.service.BookService;
+import graphql.annotations.annotationTypes.GraphQLField;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +44,15 @@ public class QueryResolver implements GraphQLQueryResolver {
   }
 
   @QueryMapping
+  public Integer countAuthors(){
+    return authorService.getAllAuthors().size();
+  }
+  @QueryMapping
   public Optional<Author> getAuthorById(@Argument Long id){
     return authorService.getAuthorById(id);
   }
 
-  @SchemaMapping
+  @SchemaMapping // Resolving the 'author' field for the 'Book' type
   public Optional<Author> author(Book book){
     if (book.getAuthor() == null) {
       return Optional.empty(); // Handle Book without an author = empty author

@@ -6,17 +6,22 @@ scalar Long
 # GraphQL accepts only one root Query and one root Mutation types
 # as we want to split the logic for each model into a separate file, We extend the Query and Mutation types
 
-
-# Root
-type Query{
-    getAllBooks: [Book]!
-    countBooks: Int!
-    getBookById(id: Long!): Book
-}
-
 type Book{
     id: ID!
     name: String!
     pageCount: Int!
     author: Author
+}
+
+# Root
+type Query{
+    getAllBooks: [Book]!
+    getBookById(id: Long!): Book
+    countBooks: Int!
+}
+
+type Mutation {
+    createBook(name:String!, pageCount:Int!, authorId:ID!): Book!
+    updateBook(id:ID!, name:String, pageCount:Int, authorId:ID!): Book!
+    deleteBook(id:ID!): Boolean
 }

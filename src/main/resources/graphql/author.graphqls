@@ -1,13 +1,19 @@
-
-extend type Query {
-    getAllAuthors:[Author]!
-    getAuthorById(id: Long): Author
-
-}
-
 type Author{
     id: ID!
     name: String!
     age: Int
+}
+
+extend type Query {
+    getAllAuthors:[Author]!
+    getAuthorById(id: Long): Author
+    countAuthors: Int!
+}
+
+extend type Mutation{
+
+    createAuthor(name:String!, age:Int): Author!
+    updateAuthor(id:ID!, name:String, age:Int): Author!
+    deleteAuthor(id:ID!): Boolean
 }
 
