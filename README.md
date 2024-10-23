@@ -18,9 +18,9 @@ GraphQL is a data query and manipulation language designed for APIs.
 Access the GraphiQL interface via: **http://localhost:8080/graphiql?path=/graphql**
 
 ## GraphQL Operations:
-1- **Queries**: Fetch data.
-2- **Mutations**: Modify data.
-3- **Subscriptions**: Subscribe to real-time updates.
+1. **Queries**: Fetch data.
+2. **Mutations**: Modify data.
+3. **Subscriptions**: Subscribe to real-time updates.
 
 ## GraphQL HTTP API
 - **GET request**: Query in request parameters  &rarr; not useful if you have long queries.
